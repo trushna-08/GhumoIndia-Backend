@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Packages - GhumoIndia</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">GhumoIndia</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="booking.html">Booking</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <section class="packages">
+        <h2>Our Tour Packages</h2>
+        
+        <div class="filters">
+            <select id="regionFilter">
+                <option value="all">All Regions</option>
+                <option value="north">North India</option>
+                <option value="south">South India</option>
+                <option value="east">East India</option>
+                <option value="west">West India</option>
+            </select>
+            <select id="budgetFilter">
+                <option value="all">All Budgets</option>
+                <option value="budget">Under ₹15,000</option>
+                <option value="mid">₹15,000 - ₹20,000</option>
+                <option value="luxury">Above ₹20,000</option>
+            </select>
+            <select id="durationFilter">
+                <option value="all">All Durations</option>
+                <option value="short">2-3 Days</option>
+                <option value="medium">4-6 Days</option>
+                <option value="long">7+ Days</option>
+            </select>
+        </div>
+
+        <div class="package-grid">
+            <div class="package-card">
+                <div class="package-badge popular">Popular</div>
+                <img src="https://cdn.pixabay.com/photo/2019/08/14/09/52/haji-peer-azad-kashmir-4405256_1280.jpg" alt="Kashmir">
+                <div class="package-content">
+                    <h3>Kashmir Paradise Tour</h3>
+                    <div class="package-info">
+                        <span><i class="far fa-calendar"></i> 15 Jan - 20 Jan 2024</span>
+                        <span><i class="far fa-clock"></i> 5 Days 6 Nights</span>
+                    </div>
+                    <div class="rating">
+                        <span>★★★★★</span>
+                        <span class="rating-count">(128 reviews)</span>
+                    </div>
+                    <div class="package-price">
+                        <span class="price">₹14,999</span>
+                        <span class="per-person">per person</span>
+                    </div>
+                    <div class="limited-seats">Only 4 seats left!</div>
+                    <a href="booking.html" class="book-button">Book Now</a>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-badge discount">10% Off</div>
+                <img src="https://cdn.pixabay.com/photo/2020/07/28/07/37/sunset-5444216_1280.jpg" alt="Goa">
+                <div class="package-content">
+                    <h3>Goa Beach Escape</h3>
+                    <div class="package-info">
+                        <span><i class="far fa-calendar"></i> 20 Jan - 23 Jan 2024</span>
+                        <span><i class="far fa-clock"></i> 3 Days 4 Nights</span>
+                    </div>
+                    <div class="rating">
+                        <span>★★★★☆</span>
+                        <span class="rating-count">(96 reviews)</span>
+                    </div>
+                    <div class="package-price">
+                        <span class="price">₹11,499</span>
+                        <span class="per-person">per person</span>
+                    </div>
+                    <a href="booking.html" class="book-button">Book Now</a>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-badge luxury">Luxury</div>
+                <img src="https://cdn.pixabay.com/photo/2021/04/06/11/22/hawa-mahal-6156123_1280.jpg" alt="Rajasthan">
+                <div class="package-content">
+                    <h3>Royal Rajasthan Tour</h3>
+                    <div class="package-info">
+                        <span><i class="far fa-calendar"></i> 25 Jan - 31 Jan 2024</span>
+                        <span><i class="far fa-clock"></i> 6 Days 7 Nights</span>
+                    </div>
+                    <div class="rating">
+                        <span>★★★★★</span>
+                        <span class="rating-count">(156 reviews)</span>
+                    </div>
+                    <div class="package-price">
+                        <span class="price">₹21,999</span>
+                        <span class="per-person">per person</span>
+                    </div>
+                    <div class="limited-seats">Only 2 seats left!</div>
+                    <a href="booking.html" class="book-button">Book Now</a>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-badge popular">Popular</div>
+                <img src="https://cdn.pixabay.com/photo/2019/08/07/06/33/golden-4389970_1280.jpg" alt="Golden Triangle">
+                <div class="package-content">
+                    <h3>Golden Triangle Tour</h3>
+                    <div class="package-info">
+                        <span><i class="far fa-calendar"></i> 1 Feb - 5 Feb 2024</span>
+                        <span><i class="far fa-clock"></i> 4 Days 5 Nights</span>
+                    </div>
+                    <div class="rating">
+                        <span>★★★★☆</span>
+                        <span class="rating-count">(142 reviews)</span>
+                    </div>
+                    <div class="package-price">
+                        <span class="price">₹16,999</span>
+                        <span class="per-person">per person</span>
+                    </div>
+                    <a href="booking.html" class="book-button">Book Now</a>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <img src="https://cdn.pixabay.com/photo/2022/02/24/16/34/hut-7032759_1280.jpg" alt="Kerala">
+                <div class="package-content">
+                    <h3>Kerala Backwaters</h3>
+                    <div class="package-info">
+                        <span><i class="far fa-calendar"></i> 10 Feb - 14 Feb 2024</span>
+                        <span><i class="far fa-clock"></i> 4 Days 5 Nights</span>
+                    </div>
+                    <div class="rating">
+                        <span>★★★★★</span>
+                        <span class="rating-count">(112 reviews)</span>
+                    </div>
+                    <div class="package-price">
+                        <span class="price">₹13,500</span>
+                        <span class="per-person">per person</span>
+                    </div>
+                    <a href="booking.html" class="book-button">Book Now</a>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-badge discount">15% Off</div>
+                <img src="https://cdn.pixabay.com/photo/2018/05/01/14/34/india-3365741_1280.jpg" alt="Varanasi">
+                <div class="package-content">
+                    <h3>Spiritual Varanasi</h3>
+                    <div class="package-info">
+                        <span><i class="far fa-calendar"></i> 15 Feb - 17 Feb 2024</span>
+                        <span><i class="far fa-clock"></i> 2 Days 3 Nights</span>
+                    </div>
+                    <div class="rating">
+                        <span>★★★★☆</span>
+                        <span class="rating-count">(86 reviews)</span>
+                    </div>
+                    <div class="package-price">
+                        <span class="price">₹9,999</span>
+                        <span class="per-person">per person</span>
+                    </div>
+                    <a href="booking.html" class="book-button">Book Now</a>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-badge luxury">Premium</div>
+                <img src="https://cdn.pixabay.com/photo/2020/05/12/09/35/phi-phi-island-5162095_1280.jpg" alt="Andaman">
+                <div class="package-content">
+                    <h3>Andaman Island Explorer</h3>
+                    <div class="package-info">
+                        <span><i class="far fa-calendar"></i> 20 Feb - 26 Feb 2024</span>
+                        <span><i class="far fa-clock"></i> 6 Days 7 Nights</span>
+                    </div>
+                    <div class="rating">
+                        <span>★★★★★</span>
+                        <span class="rating-count">(94 reviews)</span>
+                    </div>
+                    <div class="package-price">
+                        <span class="price">₹24,999</span>
+                        <span class="per-person">per person</span>
+                    </div>
+                    <div class="limited-seats">Only 3 seats left!</div>
+                    <a href="booking.html" class="book-button">Book Now</a>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-badge popular">Trending</div>
+                <img src="https://cdn.pixabay.com/photo/2016/11/14/03/29/grand-palace-1822487_1280.jpg" alt="Northeast">
+                <div class="package-content">
+                    <h3>Northeast India Discovery</h3>
+                    <div class="package-info">
+                        <span><i class="far fa-calendar"></i> 1 Mar - 7 Mar 2024</span>
+                        <span><i class="far fa-clock"></i> 6 Days 7 Nights</span>
+                    </div>
+                    <div class="rating">
+                        <span>★★★★☆</span>
+                        <span class="rating-count">(78 reviews)</span>
+                    </div>
+                    <div class="package-price">
+                        <span class="price">₹17,999</span>
+                        <span class="per-person">per person</span>
+                    </div>
+                    <a href="booking.html" class="book-button">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 GhumoIndia. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

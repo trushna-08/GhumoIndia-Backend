@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Tour - GhumoIndia</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">GhumoIndia</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="booking.html">Booking</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <section class="booking-section">
+        <div class="booking-container">
+            <h2>Booking Form</h2>
+            <form id="bookingForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name <span class="required">*</span></label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name <span class="required">*</span></label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number <span class="required">*</span></label>
+                    <input type="tel" id="phone" name="phone" pattern="[0-9]{3} [0-9]{3} [0-9]{4}"
+                        placeholder="### ### ####" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="departureDate">Departure Date <span class="required">*</span></label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-calendar"></i>
+                            <input type="date" id="departureDate" name="departureDate" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="departureTime">Departure Time <span class="required">*</span></label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-clock"></i>
+                            <input type="time" id="departureTime" name="departureTime" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="returnDate">Return Date <span class="required">*</span></label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-calendar"></i>
+                            <input type="date" id="returnDate" name="returnDate" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="returnTime">Return Time <span class="required">*</span></label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-clock"></i>
+                            <input type="time" id="returnTime" name="returnTime" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="package">Select Package <span class="required">*</span></label>
+                        <select id="package" name="package" required onchange="updatePrice()">
+                            <option value="">Choose a package</option>
+                            <option value="golden-triangle">Golden Triangle Tour</option>
+                            <option value="kerala">Kerala Backwaters</option>
+                            <option value="rajasthan">Royal Rajasthan</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="passengers">Number of Passengers <span class="required">*</span></label>
+                        <select id="passengers" name="passengers" required onchange="updatePrice()">
+                            <option value="">Select</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="price-estimate" id="priceEstimate">
+                    Estimated Price: <span id="totalPrice">₹0</span>
+                </div>
+
+                <button type="submit" class="book-button">BOOK</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Load saved form data
+        window.onload = function () {
+            const savedData = JSON.parse(localStorage.getItem('bookingFormData') || '{}');
+            for (let field in savedData) {
+                const element = document.getElementById(field);
+                if (element) element.value = savedData[field];
+            }
+            updatePrice();
+        };
+
+        // Save form data
+        const form = document.getElementById('bookingForm');
+        form.addEventListener('input', function () {
+            const formData = {};
+            new FormData(form).forEach((value, key) => {
+                formData[key] = value;
+            });
+            localStorage.setItem('bookingFormData', JSON.stringify(formData));
+        });
+
+        // Phone number formatting
+        document.getElementById('phone').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 3) value = value.slice(0, 3) + ' ' + value.slice(3);
+            if (value.length >= 7) value = value.slice(0, 7) + ' ' + value.slice(7);
+            if (value.length > 12) value = value.slice(0, 12);
+            e.target.value = value;
+        });
+
+        // Price calculation
+        function updatePrice() {
+            const packagePrices = {
+                'golden-triangle': 45000,
+                'kerala': 35000,
+                'rajasthan': 40000
+            };
+
+            const pkg = document.getElementById('package').value;
+            const passengers = parseInt(document.getElementById('passengers').value) || 0;
+            const basePrice = packagePrices[pkg] || 0;
+            const totalPrice = basePrice * passengers;
+
+            document.getElementById('totalPrice').textContent = '₹' + totalPrice.toLocaleString();
+        }
+
+        // Submit booking form to backend
+        async function validateBookingForm(event) {
+            event.preventDefault(); // Stop default submission
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const departureDate = new Date(document.getElementById('departureDate').value);
+            const returnDate = new Date(document.getElementById('returnDate').value);
+
+            if (returnDate < departureDate) {
+                alert('Return date cannot be earlier than departure date');
+                return;
+            }
+
+            const formData = new FormData(form);
+            const payload = {};
+            formData.forEach((value, key) => {
+                if (key === 'package') {
+                    payload['selectedTour'] = value; // Rename 'package' to 'selectedTour'
+                } else {
+                    payload[key] = value;
+                }
+            });
+            try {
+                const response = await fetch('http://localhost:5000/api/book', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    alert('Booking successful! We will contact you shortly.');
+                    localStorage.removeItem('bookingFormData');
+                    form.reset();
+                    grecaptcha.reset();
+                    document.getElementById('totalPrice').textContent = '₹0';
+                } else {
+                    alert('Booking failed: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Something went wrong. Please try again.');
+            }
+        }
+
+        form.addEventListener('submit', validateBookingForm);
+    </script>
+</body>
+
+</html>
